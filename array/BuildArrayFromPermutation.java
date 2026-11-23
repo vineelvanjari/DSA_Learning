@@ -21,6 +21,30 @@ public class BuildArrayFromPermutation {
     }
 
 
+    // Approach 2: Optimized In-place Encoding
+    // Time Complexity: O(n)
+    // Space Complexity: O(1)
+
+    public static int[] buildArrayOptimized(int[] nums) {
+
+        int n = nums.length;
+
+        // Encoding
+        for (int i = 0; i < n; i++) {
+            int a = nums[nums[i] % n] % n;
+            nums[i] = nums[i] + (a * n);
+        }
+
+        // Decoding
+        for (int i = 0; i < n; i++) {
+            nums[i] = nums[i] / n;
+        }
+
+        return nums;
+    }
+
+
+
     public static void main(String[] args) {
 
         int[] nums = {0, 2, 1, 5, 3, 4};
@@ -28,6 +52,8 @@ public class BuildArrayFromPermutation {
         System.out.println("Extra Array: " +
                 Arrays.toString(buildArray(nums)));
 
+        System.out.println("Optimized: " +
+                Arrays.toString(buildArrayOptimized(nums.clone())));
 
     }
 
