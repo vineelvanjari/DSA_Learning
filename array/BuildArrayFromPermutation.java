@@ -24,7 +24,7 @@ public class BuildArrayFromPermutation {
     // Approach 2: Optimized In-place Encoding
     // Time Complexity: O(n)
     // Space Complexity: O(1)
-
+    
     public static int[] buildArrayOptimized(int[] nums) {
 
         int n = nums.length;
